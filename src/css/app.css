@@ -19,6 +19,9 @@ body {
 body {
     background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 .container {
@@ -31,20 +34,25 @@ body {
 h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-size: 2rem
 }
+
 
 /*
  * Styles for the deck of cards
  */
 
 .deck {
-    width: 660px;
-    min-height: 680px;
+    width: 100%;
+    max-width: 660px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px;
+    padding: 15px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
+    flex: 1 1 100%;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
@@ -52,17 +60,24 @@ h1 {
 }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
+    /*width: 25%;*/
     background: #2e3d49;
     font-size: 0;
+    margin: 5px;
     color: #ffffff;
     border-radius: 8px;
     cursor: pointer;
     display: flex;
+    flex: 0 1 20%;
     justify-content: center;
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card:before {
+    content: '';
+    float: left;
+    padding-top: 100%;
 }
 
 .deck .card.open {
@@ -87,7 +102,6 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 345px;
     margin-bottom: 10px;
 }
 
@@ -104,6 +118,37 @@ h1 {
 }
 
 .score-panel .restart {
-    float: right;
+    text-align: center;
     cursor: pointer;
+}
+
+@media screen and (max-width: 575px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .deck {
+        min-height: 400px;
+    }
+}
+
+@media screen and (min-width: 576px){
+    h1 {
+        font-size: 2.8rem
+    }
+
+    .deck {
+        padding: 32px;
+        min-height: 680px;
+    }
+
+    .score-panel {
+        width: 345px;
+    }
+
+    .score-panel .restart {
+        float: right;
+        cursor: pointer;
+    }
+
 }
