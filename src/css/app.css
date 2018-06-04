@@ -1,0 +1,175 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-size: 2rem
+}
+
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 100%;
+    max-width: 660px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    /*width: 25%;*/
+    background: #2e3d49;
+    font-size: 0;
+    margin: 5px;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    flex: 0 1 20%;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card:before {
+    content: '';
+    float: left;
+    padding-top: 100%;
+}
+
+.deck .card.open {
+    transform: rotateY(0);
+    background: #02b3e4;
+    cursor: default;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .stars li i.highlight {
+    color: gold;
+}
+
+.score-panel .restart {
+    text-align: center;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 575px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .stars,
+    .moves,
+    .timer,
+    .restart {
+        text-align: center;
+        display: block;
+    }
+
+    .restart {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .deck {
+        min-height: 400px;
+    }
+}
+
+@media screen and (min-width: 576px){
+    h1 {
+        font-size: 2.8rem
+    }
+
+    .deck {
+        padding: 32px;
+        min-height: 680px;
+    }
+
+    .score-panel {
+        width: 345px;
+    }
+
+    .score-panel .timer {
+        padding-left: 15px;
+    }
+
+    .score-panel .restart {
+        float: right;
+        cursor: pointer;
+    }
+
+}
